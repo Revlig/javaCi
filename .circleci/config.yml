@@ -1,0 +1,11 @@
+version: 2.1
+jobs:
+    build:    
+        docker:
+            # specify the version you desire here
+            - image: circleci/node:13.5.0
+              
+        steps:
+            - checkout
+            - run: mvn install
+            - run: mvn test

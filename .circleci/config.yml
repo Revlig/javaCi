@@ -1,25 +1,7 @@
-version: 2.1
-
 orbs:
-    maven: circleci/maven@1.0.1
-
-jobs:
-    build:
-        working_directory: ~/javaCi
-
-        steps:
-            - checkout
-            - run: compile
-    test:
-        working_directory: ~/javaCi
-
-        steps:
-            - checkout
-            - run: mvn test
-
+  maven: circleci/maven@1.0.1
+version: 2.1
 workflows:
-    version: 2.1
-    build_and_test:
-        jobs:
-            - build
-            - test
+  maven_test:
+    jobs:
+      - maven/test
